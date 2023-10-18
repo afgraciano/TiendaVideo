@@ -18,7 +18,7 @@ import { EmpresasModule } from './componentes/empresas/empresas.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    EmpresasModule
+    EmpresasModule  //para carga perezosa o carga por demanda lazzy load
   ],
   providers: [],
   bootstrap: [AppComponent]
