@@ -4,6 +4,7 @@ import { EmpresasComponent } from "./paginas/empresas/empresas.component";
 import { NgModule } from "@angular/core";
 
 
+
 const routes: Routes = [
   { path: "", component: EmpresasComponent }
 
