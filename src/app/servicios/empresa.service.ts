@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environments';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Empresa } from '../entidades/empresa';
 
@@ -8,24 +8,29 @@ import { Empresa } from '../entidades/empresa';
   providedIn: 'root'
 })
 export class EmpresaService {
-
-
   url: string;
 
 
-  constructor(private http: HttpClient
-   ) {
-
+  constructor(
+    private http: HttpClient
+  ) {
     this.url = `${environment.urlAPI}empresas`;
   }
 
-
   public listar(): Observable<Empresa[]> {
-
     const urlT = `${this.url}/listar`;
     return this.http.get<Empresa[]>(urlT);
-
-
   }
-}
 
+  public agregar(empresa: Empresa): Observable<Empresa> {
+    const urlT = `${this.url}/agregar`;
+    return this.http.post<Empresa>(urlT, empresa);
+  }
+
+
+  public modificar(empresa: Empresa): Observable<Empresa> {
+    const urlT = `${this.url}/modificar`;
+    return this.http.put<Empresa>(urlT, empresa);
+  }
+
+}

@@ -8,18 +8,22 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { EmpresasModule } from './componentes/empresas/empresas.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { DecidirComponent } from './componentes/decidir/decidir.component';
+import { ReferenciasMaterialModule } from 'src/app/referencias-material.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
+    DecidirComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReferenciasMaterialModule,
     EmpresasModule,//para carga perezosa o carga por demanda lazzy load
     HttpClientModule,
     
