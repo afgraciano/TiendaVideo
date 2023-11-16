@@ -65,7 +65,17 @@ export class EmpresasComponent implements OnInit {
   }
 
   public buscar() {
+    if (this.textoBusqueda.length > 0) {
+      this.empresaService.buscar(this.textoBusqueda).subscribe(
+        respuesta => {
+          this.empresas= respuesta;
+        },
+        (error: HttpErrorResponse) => {
+          window.alert(`Error buscando Empresas: [${error.message}]`);
+        }
+      );
 
+    }
   }
 
   public agregar() {
@@ -152,7 +162,7 @@ export class EmpresasComponent implements OnInit {
           id: this.empresaSeleccionada.id
         }
       });
-    
+
       dialogRef.afterClosed().subscribe(
         datos => {
           if (datos) {
@@ -176,8 +186,8 @@ export class EmpresasComponent implements OnInit {
     else {
       window.alert("Debe seleccionar una Empresa");
     }
-    
-    
+
+
   }
 
   public onActivate(event: any) {
