@@ -152,11 +152,32 @@ export class EmpresasComponent implements OnInit {
           id: this.empresaSeleccionada.id
         }
       });
+    
+      dialogRef.afterClosed().subscribe(
+        datos => {
+          if (datos) {
+            this.empresaService.eliminar(datos.id).subscribe(
+              respuesta => {
+                this.listar();
+                window.alert("Los datos de la Empresa fueron eliminados");
+              },
+              (error: HttpErrorResponse) => {
+                window.alert(`Error eliminando la Empresa: [${error.message}]`);
+              }
+            );
+          }
+        }, error => {
+          window.alert(error.message)
+        }
+      );
+
+
     }
     else {
       window.alert("Debe seleccionar una Empresa");
     }
-
+    
+    
   }
 
   public onActivate(event: any) {
@@ -165,5 +186,4 @@ export class EmpresasComponent implements OnInit {
     }
 
   }
-
 }

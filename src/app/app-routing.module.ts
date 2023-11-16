@@ -9,6 +9,11 @@ const routes: Routes = [
       import('./componentes/empresas/empresas.module')
         .then(m => m.EmpresasModule)
   },
+  {
+    path: 'paises', loadChildren: () =>
+      import('./componentes/paises/paises.module')
+        .then(m => m.PaisesModule)
+  },
   { path: "**", redirectTo: "inicio" }
 
 ];

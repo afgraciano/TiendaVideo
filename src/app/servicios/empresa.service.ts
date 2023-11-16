@@ -33,4 +33,8 @@ export class EmpresaService {
     return this.http.put<Empresa>(urlT, empresa);
   }
 
+  public eliminar(id: number): Observable<boolean> {
+    const urlT = `${this.url}/eliminar/${id}`;
+    return this.http.delete<boolean>(urlT);
+  }
 }

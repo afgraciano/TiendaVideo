@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 
-export interface DatosDecidir {
+export interface DatosDecision{
   titulo: string;
   mensaje: string;
   id: number;
@@ -20,7 +20,7 @@ export class DecidirComponent {
   
   
   constructor(
-    @Inject(MAT_DIALOG_DATA) public datos: DatosDecidir
+    @Inject(MAT_DIALOG_DATA) public datos: DatosDecision
   ) {
 
   }
