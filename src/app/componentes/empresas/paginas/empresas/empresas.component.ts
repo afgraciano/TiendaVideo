@@ -68,13 +68,16 @@ export class EmpresasComponent implements OnInit {
     if (this.textoBusqueda.length > 0) {
       this.empresaService.buscar(this.textoBusqueda).subscribe(
         respuesta => {
-          this.empresas= respuesta;
+          this.empresas = respuesta;
         },
         (error: HttpErrorResponse) => {
           window.alert(`Error buscando Empresas: [${error.message}]`);
         }
       );
 
+    }
+    else {
+      this.listar();
     }
   }
 
